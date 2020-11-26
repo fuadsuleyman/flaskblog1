@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<h1>Welcome to Home Page<span>|<a href="{{ url_for('new_post') }}"><button class="btn btn-outline-primary">Add New Post</button></a></span></h1>
+
+<div class="content-section">
+    {% for post in posts %}
+    <h3><a class="article-title" href="{{ url_for('post', post_id=post.id) }}">{{ post.title }}</a></h3>
+        <p>{{ post.description }}</p>
+        <hr>
+    {% endfor %}
+</div>
+
+
+{% endblock content %}
+

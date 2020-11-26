@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+{% block content %}
+<span><a href="{{ url_for('home_page') }}"><button class="btn btn-outline-success">Back To Home Page</button></a></span>
+    <h4>Post:</h4>    
+    <article class="media content-section">
+        <div class="media-body">
+          <h2 class="article-title">{{ post.title }}</h2>
+          <p class="article-content">{{ post.description }}</p>
+        </div>
+      </article>
+      <h4>Comments:</h4><span><a href="{{ url_for('new_comment') }}"><button class="btn btn-outline-success">Add Comment</button></a></span>
+      {% for comment in comments %}
+      <article class="media content-section">
+        <div class="media-body">
+          <!-- <h2 class="article-title">{{ post.title }}</h2> -->
+          <p class="article-content">{{ comment.content }}</p>
+        </div>
+      </article>
+      {% endfor %}
+{% endblock content %}
